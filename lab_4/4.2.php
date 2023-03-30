@@ -1,19 +1,19 @@
 <?php
 
 // Funkcje obliczające podstawowe działania matematyczne
-function dodaj($a, $b) {
+function sum($a, $b) {
     return $a + $b;
 }
 
-function odejmij($a, $b) {
+function subtract($a, $b) {
     return $a - $b;
 }
 
-function pomnoz($a, $b) {
+function multiply($a, $b) {
     return $a * $b;
 }
 
-function podziel($a, $b) {
+function divide($a, $b) {
     if ($b == 0) {
         return "Nie można dzielić przez zero!";
     } else {
@@ -22,39 +22,39 @@ function podziel($a, $b) {
 }
 
 // Funkcje obliczające funkcje zaawansowane
-function oblicz_cosinus($kat) {
+function calc_cosinus($kat) {
     return cos($kat);
 }
 
-function oblicz_sinus($kat) {
+function calc_sinus($kat) {
     return sin($kat);
 }
 
-function oblicz_tangens($kat) {
+function calc_tangens($kat) {
     return tan($kat);
 }
 
-function bin_na_dek($liczba) {
+function bin_to_dec($liczba) {
     return bindec($liczba);
 }
 
-function dek_na_bin($liczba) {
+function dec_to_bin($liczba) {
     return decbin($liczba);
 }
 
-function dek_na_hex($liczba) {
+function dec_to_hex($liczba) {
     return dechex($liczba);
 }
 
-function hex_na_dek($liczba) {
+function hex_to_dec($liczba) {
     return hexdec($liczba);
 }
 
-function stopnie_na_radiany($kat) {
+function degrees_to_radians($kat) {
     return deg2rad($kat);
 }
 
-function radiany_na_stopnie($kat) {
+function radians_to_degrees($kat) {
     return rad2deg($kat);
 }
 
@@ -68,43 +68,43 @@ if (isset($_POST['submit'])) {
     // Wywołanie odpowiedniej funkcji w zależności od wybranego działania
     switch ($dzialanie) {
         case 'Dodawanie':
-            $wynik = dodaj($liczba1, $liczba2);
+            $wynik = sum($liczba1, $liczba2);
             break;
         case 'Odejmowanie':
-            $wynik = odejmij($liczba1, $liczba2);
+            $wynik = subtract($liczba1, $liczba2);
             break;
         case 'Mnożenie':
-            $wynik = pomnoz($liczba1, $liczba2);
+            $wynik = multiply($liczba1, $liczba2);
             break;
         case 'Dzielenie':
-            $wynik = podziel($liczba1, $liczba2);
+            $wynik = divide($liczba1, $liczba2);
             break;
         case 'Cosinus':
-            $wynik = oblicz_cosinus($liczba1);
+            $wynik = calc_cosinus($liczba1);
             break;
         case 'Sinus':
-            $wynik = oblicz_sinus($liczba1);
+            $wynik = calc_sinus($liczba1);
             break;
         case 'Tangens':
-            $wynik = oblicz_tangens($liczba1);
+            $wynik = calc_tangens($liczba1);
             break;
         case 'Binarne na dziesiętne':
-            $wynik = bin_na_dek($liczba1);
+            $wynik = bin_to_dec($liczba1);
             break;
             case 'Dziesiętne na binarne':
-                $wynik = dek_na_bin($liczba1);
+                $wynik = dec_to_bin($liczba1);
                 break;
             case 'Dziesiętne na szesnastkowe':
-                $wynik = dek_na_hex($liczba1);
+                $wynik = dec_to_hex($liczba1);
                 break;
             case 'Szesnastkowe na dziesiętne':
-                $wynik = hex_na_dek($liczba1);
+                $wynik = hex_to_dec($liczba1);
                 break;
             case 'Stopnie na radiany':
-                $wynik = stopnie_na_radiany($liczba1);
+                $wynik = degrees_to_radians($liczba1);
                 break;
             case 'Radiany na stopnie':
-                $wynik = radiany_na_stopnie($liczba1);
+                $wynik = radians_to_degrees($liczba1);
                 break;
             default:
                 $wynik = "Nieznane działanie!";
