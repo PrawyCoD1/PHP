@@ -23,7 +23,12 @@
 			function getAge($dob) {
 				$bornYear = date("Y", strtotime($dob));
 				$currentYear = date("Y");
-				$age = $currentYear - $bornYear;
+				$bornDate = date(strtotime($dob));
+				$currentDate = time();
+				if($currentDate != $bornDate)
+					$age = $currentYear - $bornYear - 1;
+				else
+					$age = $currentYear - $bornYear;
 				return $age;
 			}
 
