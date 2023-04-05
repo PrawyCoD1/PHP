@@ -1,0 +1,3 @@
+https://youtube.com;Serwis z filmikami
+https://cod1x.eu;Strona przekierowująca użytkownika do strony grupy xtnded na githubie, do której aktywnie commitowałem jak jeszcze miałem czas i chęci( jakby był Pan ciekawy,  repo: codextended, codextended-client) ;D
+https://wp.pl;Strona, na której zobaczymy najnowsze wiadomości i wejdziemy na poczte-wp
