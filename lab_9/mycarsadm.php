@@ -8,10 +8,7 @@
     <?php
     session_start();
     $id = $_SESSION['id'];
-    if ($id == 2) {
-        header("Location: mycarsadm.php");
-    }
-    echo $id;
+    //echo $id; debug
     $connect = mysqli_connect("localhost", "root", "", "mojaBaza");
     $mojaBaza = mysqli_select_db($connect, "mojaBaza");
 
@@ -21,8 +18,9 @@
         $model = $_POST['model'];
         $price = $_POST['price'];
         $year = $_POST['year'];
+        $desc = $_POST['desc'];
 
-        $query = "UPDATE samochody SET marka='$brand', model='$model', cena='$price', rok='$year' WHERE id=$id";
+        $query = "UPDATE samochody SET marka='$brand', model='$model', cena='$price', rok='$year', opis='$desc' WHERE id=$id";
         $result = mysqli_query($connect, $query);
         if ($result) {
             echo "Data updated successfully.";
@@ -31,7 +29,7 @@
         }
     }
 
-    $query = "SELECT * FROM samochody  WHERE id_uzytkownik = '" . $id . "'";
+    $query = "SELECT * FROM samochody";
     $zapytanie = mysqli_query($connect, $query);
     ?>
 
@@ -42,6 +40,7 @@
             <td>Model</td>
             <td>Price</td>
             <td>Year</td>
+            <td>Description</td>
             <td>Edit</td>
         </tr>
         <?php
@@ -53,6 +52,7 @@
             echo "<td><input type='text' name='model' value='$row[2]'></td>";
             echo "<td><input type='text' name='price' value='$row[3]'></td>";
             echo "<td><input type='text' name='year' value='$row[4]'></td>";
+            echo "<td><input type='text' name='desc' value='$row[5]'></td>";
             echo "<td><input type='submit' name='submit' value='Update'></td>";
             echo "<input type='hidden' name='id' value='$row[0]'>";
             echo "</form>";
