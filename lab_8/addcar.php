@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST['brand']) && isset($_POST['model']) && isset($_POST['price']) && isset($_POST['year']) && isset($_POST['desc'])) {
   $db = mysqli_connect("localhost", "root", "", "mojaBaza");
   $brand = $db->real_escape_string($_POST['brand']);
@@ -6,8 +7,9 @@ if (isset($_POST['brand']) && isset($_POST['model']) && isset($_POST['price']) &
   $price = $db->real_escape_string($_POST['price']);
   $year = $db->real_escape_string($_POST['year']);
   $desc = $db->real_escape_string($_POST['desc']);
+  $id = $_SESSION["id"];
 
-  $query = "INSERT INTO samochody (marka, model, cena, rok, opis) VALUES ('$brand', '$model', $price, '$year', '$desc')";
+  $query = "INSERT INTO samochody (marka, model, cena, rok, opis, id_uzytkownik) VALUES ('$brand', '$model', $price, '$year', '$desc', '$id')";
   if ($db->query($query)) {
     echo 'Added a new car to the database';
   } else {
@@ -40,7 +42,7 @@ if (isset($_POST['brand']) && isset($_POST['model']) && isset($_POST['price']) &
     <textarea name="desc"></textarea><br>
 
     <button type="submit">Add car</button></br></br>
-    <a href="lab_8.php">Back to homepage</a>
+    <a href="lab_9.php">Back to homepage</a>
   </form>
 </body>
 
